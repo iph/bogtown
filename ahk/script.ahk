@@ -105,24 +105,22 @@ return
 !n::
     asv_loop = true
     loop_second = 0
+
     time_subtraction = 0
     loop
     {
 
         if Mod(loop_second, 5) == 0
         {
-            WinActivate, ahk_id %poet_id%
-            Send {0}
+            ControlSend,, {0}, ahk_id %poet_id%
             sleep 100
-            Send {3}
+            ControlSend,, {4}, ahk_id %poet_id%
             sleep 100
-            Send {4}
-            sleep 100
-            Send {5}
+            ControlSend,, {5}, ahk_id %poet_id%
+            sleep 400
+            ControlSend,, {6}, ahk_id %poet_id%
             sleep 300
-            Send {6}
-            sleep 300
-            Send {7}
+            ControlSend,, {7}, ahk_id %poet_id%
             time_subtraction += 900
             sleep 100
 
@@ -130,16 +128,14 @@ return
 
         if Mod(loop_second, 20) == 0 
          {
-            WinActivate, ahk_id %poet_id%
-             sleep 200
             loop 20 
             {
-                Send {8}
+                ControlSend,, {8}, ahk_id %poet_id%
                 sleep 100
             }
             loop 20 
             {
-                Send {3}
+                ControlSend,, {3}, ahk_id %poet_id%
                 sleep 100
             }
             time_subtraction += 4000
@@ -147,20 +143,17 @@ return
 
         if Mod(loop_second, 10) == 0
         {
-            WinActivate, ahk_id %warrior_id%
-            sleep 200
-            Send {8}
-            sleep 200
-            Send {9}
-            sleep 200
-            time_subtraction += 600
+            ControlSend,, {8}, ahk_id %warrior_id%
+            sleep 500
+            ControlSend,, {9}, ahk_id %warrior_id%
+            sleep 500
+            time_subtraction += 1000
         }
 
         if Mod(loop_second, 30) == 0
         {
-            WinActivate, ahk_id %warrior_id%
             sleep 200
-            Send {5}
+            ControlSend,, {5}, ahk_id %warrior_id%
             sleep 200
             time_subtraction += 400
         }
