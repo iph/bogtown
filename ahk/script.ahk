@@ -22,12 +22,31 @@ return
     WinActivate, ahk_id %warrior_id%
 return
 
+!h::
+    loop 50 {
+        sleep 500
+        ControlSend,, {enter}, ahk_id %warrior_id%
+        sleep 500
+        ControlSend,, wood, ahk_id %warrior_id%
+        sleep 500
+        ControlSend,, {enter}, ahk_id %warrior_id%
+        sleep 500
+        ControlSend,, {up}, ahk_id %warrior_id%
+        sleep 500
+        ControlSend,, {up}, ahk_id %warrior_id%
+        sleep 500
+        ControlSend,, {enter}, ahk_id %warrior_id%
+        sleep 500
+        ControlSend,, {enter}, ahk_id %warrior_id%
+    }
+
+return
 
 !b::
     loop
     {
         sleep 50
-        send {space}
+        ControlSend,, {space}, ahk_id %warrior_id%
     }
 return
 !c::
@@ -58,21 +77,17 @@ return
 !f::
     asv_loop = true
     loop {
-        send {enter}
+        ControlSend,, {enter}, ahk_id %warrior_id%
         sleep 100
-        send gem
+        ControlSend,, gem, ahk_id %warrior_id%
         sleep 500
-        send {enter}
+        ControlSend,, {enter}, ahk_id %warrior_id%
         sleep 500
-        send {down}
+        ControlSend,, {down}, ahk_id %warrior_id%
         sleep 500
-        send {down}
+        ControlSend,, {enter}, ahk_id %warrior_id%
         sleep 500
-        send {down}
-        sleep 500
-        send {enter}
-        sleep 500
-        send {enter}
+        ControlSend,, {enter}, ahk_id %warrior_id%
         if !asv_loop
         {
             break
