@@ -2,121 +2,15 @@ warrior_id := 0
 poet_id := 0
 asv_loop := true
 
+    
 !p::
     WinGet, poet_id, ID, A
 return
 !w::
     WinGet, warrior_id, ID, A
 return
-!a::
-    WinActivate, ahk_id %poet_id%
-    sleep 200
-    Send {6}
-    sleep 200
-    Send {enter}
-    Send {7}
-    Send {enter}
-    Send {8}
-    sleep 200
-    Send {enter}
-    WinActivate, ahk_id %warrior_id%
-return
+F6::Pause
 
-!h::
-    loop 50 {
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, wood, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {up}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {up}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-    }
-
-return
-
-!b::
-    loop
-    {
-        sleep 50
-        ControlSend,, {space}, ahk_id %warrior_id%
-    }
-return
-!c::
-    asv_loop = true
-    loop {
-        send {enter}
-        sleep 100
-        send {w}
-        send {e}
-        send {a}
-        send {v}
-        send {e}
-        sleep 100
-        send {enter}
-        sleep 100
-        send {down}
-        sleep 100
-        send {enter}
-        sleep 200
-        send {enter}
-        if !asv_loop
-        {
-            break
-        }
-    }
-
-return
-!f::
-    asv_loop = true
-    loop {
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        sleep 100
-        ControlSend,, gem, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {down}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        sleep 500
-        ControlSend,, {enter}, ahk_id %warrior_id%
-        if !asv_loop
-        {
-            break
-        }
-    }
-
-return
-
-!m::
-    WinActivate, ahk_id %poet_id%
-    Send {0}
-    sleep 100
-    Send {3}
-    sleep 100
-    Send {4}
-    sleep 100
-    Send {5}
-    sleep 300
-    Send {6}
-    sleep 300
-    Send {7}
-return
-!=::
-    WinActivate, ahk_id %poet_id%
-    Send {5 down}
-    sleep 6000
-    Send {5 up}
-    WinActivate, ahk_id %warrior_id%
-return
 !n::
     asv_loop = true
     loop_second = 0
@@ -192,20 +86,4 @@ return
         }
         loop_second += 1
     }
-return
-!s::
-    IfWinActive, ahk_id %poet_id%
-    {  
-        WinActivate, ahk_id %warrior_id%
-        return
-    }
-    IfWinActive, ahk_id %warrior_id%
-    {  
-        WinActivate, ahk_id %poet_id%
-        return
-    }
-return
-
-!d::
-    asv_loop = false
 return
