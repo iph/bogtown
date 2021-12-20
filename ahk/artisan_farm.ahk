@@ -1,15 +1,21 @@
-#Include classMemory.ahk
 #SingleInstance force
 #Persistent
+art_id := 0
+F7::Reload
 
+art_id := 0
+wood_selection := 3
+F6::Pause
+F12::ExitApp
 
-WinGet, id, List, BlankTK
-if not WinExist("Artisan"){
-    WinSetTitle, % "ahk_id " id1, , Artisan
-}
-
-artisanread := new _ClassMemory("Artisan", "", hProcessCopy)
-artisanBase := artisanread.BaseAddress
-artisanInv := artisanread.readString(0x6FE204,,, 0xF8)
-artisanMana := artisanread.read(0x6FE238, "UInt", 0x10C)
-MsgBox % "hi" . artisanInv . " there"
+!a::
+    WinGet, art_id, ID, A
+    return
+F9::
+    loop {
+        ControlSend,, {left}, ahk_id %art_id%
+        sleep 300
+        ControlSend,, {space}, ahk_id %art_id%
+        sleep 300
+    }
+return

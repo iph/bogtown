@@ -7,6 +7,21 @@ F12::ExitApp
 !a::
     WinGet, art_id, ID, A
     return
+o::
+    Rotah_Take("wool", art_id)
+    Rotah_Deposit("fine cloth", art_id)
+    Rotah_Deposit("cloth", art_id)
+    sleep 500
+    SendChat("sel", art_id)
+    return
+p::
+    loop 100
+    {
+       SendChat("weave", art_id)
+       SelectItem(1, art_id)
+       ControlSend,, {enter}, ahk_id %art_id%
+    }
+    return
 
 
 
@@ -39,12 +54,12 @@ f::
     return 
 Rotah_Deposit(item_name, art_id)
 {
-    SendChat("I will deposit all " . item_name, art_id)
+    SendChat("i will deposit all " . item_name, art_id)
 }
 
 Rotah_Take(item_name, art_id)
 {
-    SendChat("Give my all " . item_name . " back", art_id)
+    SendChat("give my all " . item_name . " back", art_id)
 }
 
 Wood(selection, art_id)
@@ -58,11 +73,11 @@ Wood(selection, art_id)
 SendChat(word, art_id)
 {
     ControlSend,, {enter}, ahk_id %art_id%
-    sleep 400
+    sleep 500
     ControlSend,, %word%, ahk_id %art_id%
-    sleep 400
+    sleep 500
     ControlSend,, {enter}, ahk_id %art_id%
-    sleep 400 
+    sleep 500
     return
 }
 
