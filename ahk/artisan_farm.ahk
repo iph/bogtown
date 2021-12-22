@@ -1,4 +1,5 @@
 #Include classNexus.ahk
+#Include classEntity.ahk
 #SingleInstance force
 #Persistent
 art_id := 0
@@ -8,6 +9,14 @@ art_id := 0
 wood_selection := 3
 F6::Pause
 F12::ExitApp
+!c::
+    entityManager := new EntityPositionManager()
+    ; some random 10 uid, that we move from (1,1) to (2,1)
+    positions := entityManager.AddEntityData(1888, 1, 1)
+    entityManager.AddEntityData(1888, 2, 1)
+    positions := entityManager.GetData(1888)
+    MsgBox % positions[1].x . " " positions[2].x
+return
 
 !b::
     WinGet, id, List, BlankTK
@@ -16,7 +25,7 @@ F12::ExitApp
         WinSetTitle, % "ahk_id " id1, , Artisan
     }
     nexus := new Nexus("Artisan")
-    Gui,Add,ListView, r50 w300 vList, Name| x | y | guid
+    Gui,Add,ListView, r50 w300 vList, Name| x | y | direction | guid
     Gui, Show
     loop 
     {
@@ -27,6 +36,7 @@ F12::ExitApp
             y := nexus.entityCoordY(i)
             name := nexus.entityName(i)
             guid := nexus.entityUid(i)
+            direction := nexus.entityDirection(i)
 
             ; There is no suc thing as a guid of 0, it means you have hit "null space"
             ; and have exceeded the entity system
@@ -34,7 +44,7 @@ F12::ExitApp
             {
             break
             }
-            LV_Add("", name, x, y, guid)
+            LV_Add("", name, x, y, direction, guid)
             i++
         }
         LV_ModifyCol()

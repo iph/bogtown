@@ -53,7 +53,11 @@
 ;        targetPlayerUid()
 ;        targetSpellUid()
 class Nexus {
-    static class_mem
+    static class_mem, 
+    DIR_UP := 0, 
+    DIR_RIGHT := 1, 
+    DIR_DOWN := 2, 
+    DIR_LEFT := 3
     
     __new(program) 
     {
@@ -867,19 +871,17 @@ class Nexus {
     ; Method: targetPlayerUid()
     ;
     ; Author's Note: I have no clue what any "target" method does. Good luck.
-    targetPlayerUid()
+    targetPlayerUid(uid)
     {
-        count := this.class_mem.read(0x6FEC60, "UInt", 0)
-        return count
+        this.class_mem.write(0x6FEC60, uid, "Int")
     }
 
     ; Method: targetSpellUid()
     ;
     ; Author's Note: I have no clue what any "target" method does. Good luck.
-    targetSpellUid()
+    targetSpellUid(uid)
     {
-        count := this.class_mem.read(0x6FEC58, "UInt", 0)
-        return count
+        this.class_mem.write(0x6FEC58, uid, "Int")
     }
 
 }
