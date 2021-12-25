@@ -135,6 +135,7 @@ class MapManager {
     FindBestPath(currentX, currentY, goalX, goalY)
     {
         map := this.newEntityMap()
+        ;this.printMap(map, currentX, currentY)
         currentCost := this.ManhattenCost(currentX, currentY, goalX, goalY)
         point := new Point(currentX, currentY)
 
@@ -161,7 +162,7 @@ class MapManager {
            latest := lowestPath.latest()
            ;this.printMap(map, latest.x, latest.y)
            ; if not at goal, add possible entries.
-           if(latest.x == goalX && latest.y == goalY)
+           if(latest.x = goalX and latest.y = goalY)
            {
               ; we found the lowest path
               return lowestPath
@@ -170,7 +171,7 @@ class MapManager {
            ; check to move left
            proposedX := latest.x-1
            proposedY := latest.y
-           if (proposedX != 0 && map[proposedX][proposedY] = 0)
+           if (proposedX != 0 and map[proposedX][proposedY] = 0)
            {
                map[proposedX][proposedY] := 1
                path := lowestPath.clone()
@@ -181,7 +182,7 @@ class MapManager {
            ; check to move right
            proposedX := latest.x+1
            proposedY := latest.y
-           if (proposedX <= this.maxWidth && map[proposedX][proposedY] = 0)
+           if (proposedX <= this.maxWidth and map[proposedX][proposedY] = 0)
            {
                map[proposedX][proposedY] := 1
                path := lowestPath.clone()
@@ -192,7 +193,7 @@ class MapManager {
            ; check to move up
            proposedX := latest.x
            proposedY := latest.y -1
-           if (proposedY != 0 && map[proposedX][proposedY] = 0)
+           if (proposedY != 0 and map[proposedX][proposedY] = 0)
            {
                map[proposedX][proposedY] := 1
                path := lowestPath.clone()
@@ -203,7 +204,7 @@ class MapManager {
            ; check to move down
            proposedX := latest.x
            proposedY := latest.y + 1
-           if (proposedY <= this.maxHeight && map[proposedX][proposedY] = 0)
+           if (proposedY <= this.maxHeight and map[proposedX][proposedY] = 0)
            {
                map[proposedX][proposedY] := 1
                path := lowestPath.clone()

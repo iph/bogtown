@@ -17,8 +17,8 @@ o::
 p::
     loop 100
     {
-       SendChat("weave", art_id)
-       SelectItem(1, art_id)
+       SendChat("wood", art_id)
+       SelectItem(5, art_id)
        ControlSend,, {enter}, ahk_id %art_id%
     }
     return

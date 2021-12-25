@@ -10,7 +10,7 @@ wood_selection := 3
 F6::Pause
 F12::ExitApp
 !d::
-    Gui,Add,ListView, r50 w300 vList, x | y
+    Gui,Add,ListView, r50 w300 vList, x | y | val
     Gui, Show
     WinGet, id, List, BlankTK
 
@@ -18,36 +18,44 @@ F12::ExitApp
         WinSetTitle, % "ahk_id " id1, , Artisan
     }
     WinGet, artId, ID, Artisan
-    MsgBox % artId
     nexus := new Nexus("Artisan")
     mapManager := new MapManager(18, 17)
-    mapManager.map[18][11] = 1
-    mapManager.map[17][12] = 1
-    mapManager.map[16][13] = 1
-    mapManager.map[16][16] = 1
-    mapManager.map[14][7] = 1
-    mapManager.map[13][5] = 1
-    mapManager.map[13][9] = 1
-    mapManager.map[12][12] = 1
-    mapManager.map[7][1] = 1
-    mapManager.map[7][7] = 1
-    mapManager.map[7][15] = 1
-    mapManager.map[5][5] = 1
-    mapManager.map[3][1] = 1
-    mapManager.map[1][9] = 1
+    mapManager.map[18][11] := 2
+    mapManager.map[17][12] := 2
+    mapManager.map[16][13] := 2
+    mapManager.map[16][16] := 2
+    mapManager.map[14][7] := 2
+    mapManager.map[13][5] := 2
+    mapManager.map[13][9] := 2
+    mapManager.map[12][12] := 2
+    mapManager.map[7][1] := 2
+    mapManager.map[7][7] := 2
+    mapManager.map[7][15] := 2
+    mapManager.map[5][5] := 2
+    mapManager.map[3][1] := 2
+    mapManager.map[1][9] := 2
     entities := GetEntities(nexus)
     len := entities.Length()
     loop %len% {
         position := mapManager.FindClosestPosition(nexus.mapX(), nexus.mapY(), entities)
         chosen := entities.RemoveAt(position)
+        if mapManager.map[chosen.x][chosen.y] = 2
+        {
+            continue
+        }
         bestPath := mapManager.FindBestPath(nexus.mapX(), nexus.mapY(), chosen.x, chosen.y)
 
         for index, item in bestPath.positions
         {
-          LV_Add("", item.x, item.y)
+          LV_Add("", item.x, item.y, 0)
           TryMove(nexus, item.x, item.y, artId)
         }
     }
+    return
+!e:: 
+    nexus := new Nexus("Artisan")
+    last := nexus.lastSageOrWhisper()
+    MsgBox % last
     return
 !c::
     WinGet, id, List, BlankTK

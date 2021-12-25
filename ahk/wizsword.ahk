@@ -29,10 +29,11 @@ F6::Pause
 F7::Reload
 F12::ExitApp
 
-!/::
-   wizardClient.targetPlayerUid(targetUid)
-   RecastTarget("Thunderstorm", wizardClient, wizard, 6, targetUid)
-return
+/::
+   ControlSend,,{u}, Wizard
+   sleep 50
+   ControlSend,,{i}, Wizard
+   return
 !.::
    targetUid := FindUid("iph", wizardClient)
    MsgBox % targetUid
@@ -40,18 +41,17 @@ return
        Recast("Meditate", wizardClient,  wizard, 0)
        RecastTarget("Thunderstorm", wizardClient, wizard, 6, targetUid)
        RecastTarget("Diamond Dust", wizardClient, wizard, 7, targetUid)
-       RecastTarget("Sanctuary", spellswordClient, wizard, 4, targetUid)
-       RecastTarget("Harden armor", spellswordClient, wizard, 5, targetUid)
+       ;RecastTarget("Sanctuary", spellswordClient, wizard, 4, targetUid)
+       ;RecastTarget("Harden armor", spellswordClient, wizard, 5, targetUid)
        ;Recast("Magis Bane", spellswordClient, wizard, 8)
-
+       RecastAethers("Enchant Blade", spellswordClient, spellsword, 9)
+       Recast("Tebaek's technique", spellswordClient, spellsword, 8)
+       Recast("Zeal", spellswordClient, spellsword, 5)
        sleep 400
    }
 return
 !,::
    loop {
-       RecastAethers("Enchant Blade", spellswordClient, spellsword, 9)
-       Recast("Tebaek's technique", spellswordClient, spellsword, 8)
-       Recast("Zeal", spellswordClient, spellsword, 5)
        sleep 400
    }
 return
