@@ -150,7 +150,6 @@ class MapManager {
 
            if (queue.Length() == 0)
            {
-              MsgBox % "broken"
               break ; found nothing, not possible
            }
 

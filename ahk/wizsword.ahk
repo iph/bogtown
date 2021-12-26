@@ -36,23 +36,23 @@ F12::ExitApp
    return
 !.::
    targetUid := FindUid("iph", wizardClient)
-   MsgBox % targetUid
+   second := 0
    loop {
        Recast("Meditate", wizardClient,  wizard, 0)
        RecastTarget("Thunderstorm", wizardClient, wizard, 6, targetUid)
        RecastTarget("Diamond Dust", wizardClient, wizard, 7, targetUid)
        ;RecastTarget("Sanctuary", spellswordClient, wizard, 4, targetUid)
-       ;RecastTarget("Harden armor", spellswordClient, wizard, 5, targetUid)
-       ;Recast("Magis Bane", spellswordClient, wizard, 8)
+       ;RecastTarget("Harden armor", wizardClient, wizard, 5, targetUid)
+       Recast("Magis Bane", wizardClient, wizard, 8)
+       Recast("Auto Venom", wizardClient, wizard, 3)
+
        RecastAethers("Enchant Blade", spellswordClient, spellsword, 9)
        Recast("Tebaek's technique", spellswordClient, spellsword, 8)
        Recast("Zeal", spellswordClient, spellsword, 5)
        sleep 400
-   }
-return
-!,::
-   loop {
-       sleep 400
+
+       second++
+
    }
 return
 
