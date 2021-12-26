@@ -868,17 +868,54 @@ class Nexus {
         return count
     }
 
-    ; Method: targetPlayerUid()
-    ;
-    ; Author's Note: I have no clue what any "target" method does. Good luck.
     targetPlayerUid(uid)
     {
         this.class_mem.write(0x6FEC60, uid, "Int")
     }
 
-    ; Method: targetSpellUid()
+    ; Method: targetSpellUid(uid)
     ;
-    ; Author's Note: I have no clue what any "target" method does. Good luck.
+    ; Description: Will write into the game to target a character or creature with a spell.
+    ; Parameters:
+    ;    uid - unsigned integer of the uid you want to target.
+    ;
+    ; Example: Let's say there are 2 characters in a group, a spellsword and a wizard:
+    ;
+    ;     Iph (spellsword): uid: 1685
+    ;     Magikarp (wizard): uid: 1695
+    ;
+    ;  Let's say you wanted the wizard client to cast a spell on the spellsword.
+    ;  ```
+    ;   nexus := new Nexus("wizard")
+    ;   i := 0
+    ;   targetUid := 0
+    ;   memberSize := nexus.groupMemberSize()
+    ;   loop %memberSize%
+    ;   {
+    ;        name := client.groupMemberName(i)
+    ;        if InStr(name, "Iph")
+    ;        {
+    ;           targetUid := client.groupMemberUid(i)
+    ;           break
+    ;        }
+    ;        i++
+    ;   }
+    ;  nexus.targetPlayerUid(targetUid)
+    ;  ControlSend,, {6} {enter} {esc}, warrior  ; 6 is a spell the wizard wants to cast.
+    ;  ```
+    ;  The above will go through the group, looking for a character named Iph.
+    ;  Once found -- targetPlayerUid will put a cursor over the target. The send
+    ;  command will then cast the spell. escape is post-spell.
+    ;
+    ;  There is no return value. In order to run this function, open up your application like so:
+    ;   ```
+    ;   IF NOT A_IsAdmin
+    ;   {
+    ;       Run *RunAs "%A_ScriptFullPath%"
+    ;       ExitApp
+    ;   }
+    ;   ```
+    ;   (thanks to Sonnet for the above code)
     targetSpellUid(uid)
     {
         this.class_mem.write(0x6FEC58, uid, "Int")
