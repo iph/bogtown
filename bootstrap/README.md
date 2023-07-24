@@ -33,6 +33,10 @@ This is mostly to bootstrap for mac, since that's my main laptop.
 * `brew install rain`
 * `brew install terraform`
 * `brew install tree`
+* `brew install rust-analyzer`
+* `brew install helix`
+* `brew install sipcalc`
+* 
 
 ### File notes
 
