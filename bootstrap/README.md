@@ -26,7 +26,6 @@ This is mostly to bootstrap for mac, since that's my main laptop.
 * `brew install jq`
 * `brew install netcat`
 * `brew install nettle`
-* `brew install ninja-dev-sync`
 * `brew install node`
 * `brew install packer`
 * `brew install protobuf`
