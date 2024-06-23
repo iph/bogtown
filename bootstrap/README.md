@@ -15,27 +15,39 @@ This is mostly to bootstrap for mac, since that's my main laptop.
 
 ### Brew installs:
 
-* `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-* `brew install starship`
-* `brew install ack`
-* `brew install emacs`
-* `brew install fswatch`
-* `brew install gettext`
-* `brew install hugo`
-* `brew install ipcalc`
-* `brew install jq`
-* `brew install netcat`
-* `brew install nettle`
-* `brew install node`
-* `brew install packer`
-* `brew install protobuf`
-* `brew install rain`
-* `brew install terraform`
-* `brew install tree`
-* `brew install rust-analyzer`
-* `brew install helix`
-* `brew install sipcalc`
-* 
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install starship
+brew install ack
+brew install emacs
+brew install fswatch
+brew install gettext
+brew install hugo
+brew install ipcalc
+brew install jq
+brew install netcat
+brew install nettle
+brew install node
+brew install packer
+brew install protobuf
+brew install rain
+brew install terraform
+brew install tree
+brew install rust-analyzer
+brew install helix
+brew install sipcalc
+brew tap isen-ng/dotnet-sdk-versions
+brew install --cask dotnet-sdk8-0-200
+brew install rust-analyzer
+brew tap cargo-lambda/cargo-lambda
+brew install cargo-lambda
+brew tap SergioBenitez/osxct
+brew install x86_64-unknown-linux-gnu
+brew install llvm
+brew install cmake
+brew install wireshark
+```
+
 
 ### File notes
 
