@@ -12,6 +12,7 @@ This is mostly to bootstrap for mac, since that's my main laptop.
 * RStudio: https://www.rstudio.com/products/rstudio/
 * Wireshark: https://www.wireshark.org/
 * Google Chrome: https://www.google.com/chrome/
+* Rancher: https://rancherdesktop.io/
 
 ### Brew installs:
 
@@ -46,6 +47,7 @@ brew install x86_64-unknown-linux-gnu
 brew install llvm
 brew install cmake
 brew install wireshark
+brew install lima
 ```
 
 
