@@ -4,15 +4,16 @@ This is mostly to bootstrap for mac, since that's my main laptop.
 
 ### Necessities
 
-* Alfred: https://www.alfredapp.com/
+* raycast: https://www.raycast.com/
 * Spotify: https://www.spotify.com/us/
 * Caffeine https://intelliscapesolutions.com/apps/caffeine/releasenotes (make sure to install at least 2.0)
+* Moom: https://manytricks.com/moom/ (license in email)
 * Omnifocus: https://www.omnigroup.com/
 * Omnigraffle: https://www.omnigroup.com/
 * RStudio: https://www.rstudio.com/products/rstudio/
-* Wireshark: https://www.wireshark.org/
-* Google Chrome: https://www.google.com/chrome/
-* Rancher: https://rancherdesktop.io/
+* FireFox: https://www.mozilla.org/en-US/firefox/
+  * Multi-account: https://addons.mozilla.org/en-GB/firefox/addon/multi-account-containers/
+* Docker: https://www.docker.com/
 
 ### Brew installs:
 
@@ -42,6 +43,7 @@ brew install --cask dotnet-sdk8-0-200
 brew install rust-analyzer
 brew tap cargo-lambda/cargo-lambda
 brew install cargo-lambda
+brew install rust-analyzer
 brew tap SergioBenitez/osxct
 brew install x86_64-unknown-linux-gnu
 brew install llvm
